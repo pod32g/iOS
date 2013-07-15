@@ -126,13 +126,13 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem image="atras.png" style="plain" id="T8w-kc-6fh">
+                                    <barButtonItem style="plain" systemItem="rewind" id="T8w-kc-6fh">
                                         <connections>
                                             <action selector="atras" destination="2" id="YLc-xF-KaC"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="OBZ-Ei-cSi"/>
-                                    <barButtonItem image="adelante.png" style="plain" id="cXe-f2-ytr">
+                                    <barButtonItem style="plain" systemItem="fastForward" id="cXe-f2-ytr">
                                         <connections>
                                             <action selector="adelante" destination="2" id="gC3-ga-rvq"/>
                                         </connections>
@@ -144,7 +144,7 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="WkF-zH-6fC"/>
-                                    <barButtonItem title="Item" style="plain" systemItem="bookmarks" id="Huh-Sf-YX3">
+                                    <barButtonItem style="plain" systemItem="bookmarks" id="Huh-Sf-YX3">
                                         <connections>
                                             <segue destination="hhO-Ik-8zW" kind="modal" id="uh1-qO-0Vw"/>
                                         </connections>
@@ -510,13 +510,13 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Bookmarks" id="O4f-rw-zEr">
-                                        <barButtonItem key="leftBarButtonItem" title="Beta-Only" style="plain" id="s1Y-LJ-63T">
+                                        <barButtonItem key="leftBarButtonItem" title="Beta-Only" id="s1Y-LJ-63T">
                                             <color key="tintColor" red="0.038458727470000002" green="0.59179387530000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <segue destination="Ydn-3G-8w5" kind="modal" id="jpb-YV-4az"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="License" style="plain" id="fJ5-FY-e7y">
+                                        <barButtonItem key="rightBarButtonItem" title="License" id="fJ5-FY-e7y">
                                             <color key="tintColor" red="0.038458727470000002" green="0.59179387530000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <segue destination="OMn-vK-6bY" kind="modal" id="S7o-Le-ovK"/>
@@ -865,12 +865,154 @@
         <image name="FSbackButton@2x.PNG" width="50" height="50"/>
         <image name="FSplayButton@2x.PNG" width="50" height="50"/>
         <image name="FSrefresh@2x.PNG" width="50" height="50"/>
-        <image name="adelante.png" width="16" height="20"/>
-        <image name="atras.png" width="16" height="20"/>
         <image name="barra.png" width="320" height="44"/>
         <image name="navBar5.png" width="320" height="44"/>
         <image name="tab.PNG" width="30" height="30"/>
     </resources>
+    <classes>
+        <class className="Beta_onlyViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Beta_onlyViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="b1:"/>
+                <relationship kind="action" name="b2:"/>
+                <relationship kind="action" name="b3:"/>
+                <relationship kind="action" name="b4:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="b1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="b2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="b3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="b4" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="done" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="tool" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="v1" candidateClass="UIView"/>
+                <relationship kind="outlet" name="v2" candidateClass="UIView"/>
+                <relationship kind="outlet" name="v3" candidateClass="UIView"/>
+                <relationship kind="outlet" name="v4" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="BookmarksViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BookmarksViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelButtonTapped"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="tool" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="HistoryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HistoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="tool" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="LicenseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LicenseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="tool" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="back:"/>
+                <relationship kind="action" name="enter:"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="text1" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="text2" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="tool" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="MapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="localization:"/>
+                <relationship kind="action" name="setmap:"/>
+                <relationship kind="action" name="showAddress"/>
+                <relationship kind="outlet" name="addressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="goButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+                <relationship kind="outlet" name="navBar" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="tool" candidateClass="UIToolbar"/>
+            </relationships>
+        </class>
+        <class className="ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="Harlem:"/>
+                <relationship kind="action" name="adelante"/>
+                <relationship kind="action" name="atras"/>
+                <relationship kind="action" name="blocked:"/>
+                <relationship kind="action" name="bookmarksButtonTapped"/>
+                <relationship kind="action" name="detener"/>
+                <relationship kind="action" name="dismiss:"/>
+                <relationship kind="action" name="exit2:"/>
+                <relationship kind="action" name="fullBack"/>
+                <relationship kind="action" name="fullCancel"/>
+                <relationship kind="action" name="fullForward"/>
+                <relationship kind="action" name="fullRefresh"/>
+                <relationship kind="action" name="fullurl:"/>
+                <relationship kind="action" name="google:"/>
+                <relationship kind="action" name="landscapefull:"/>
+                <relationship kind="action" name="ok:"/>
+                <relationship kind="action" name="open:"/>
+                <relationship kind="action" name="panic:"/>
+                <relationship kind="action" name="portraitfull:"/>
+                <relationship kind="action" name="recargar"/>
+                <relationship kind="action" name="refresh:"/>
+                <relationship kind="action" name="restore:"/>
+                <relationship kind="action" name="tab1:"/>
+                <relationship kind="action" name="tab2:"/>
+                <relationship kind="action" name="theme1:"/>
+                <relationship kind="action" name="theme2:"/>
+                <relationship kind="action" name="theme3:"/>
+                <relationship kind="action" name="url:"/>
+                <relationship kind="outlet" name="Menu" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="activityind" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="back" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="blocked" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="close" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="controls" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="dismiss" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="exit2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="forw" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="frame" candidateClass="UIView"/>
+                <relationship kind="outlet" name="frame2" candidateClass="UIView"/>
+                <relationship kind="outlet" name="frame3" candidateClass="UIView"/>
+                <relationship kind="outlet" name="full1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="full2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullBack" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullCan" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullFor" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullRef" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullurlbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="fullurltext" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="googlebar" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="harlem" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="ok" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="panic" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="reload" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="restore" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="screen" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="screen2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="stop" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="tab1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tab2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="test" candidateClass="UINavigationBar"/>
+                <relationship kind="outlet" name="theme1" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="theme2" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="theme3" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="themesbar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="topBar" candidateClass="UIToolbar"/>
+                <relationship kind="outlet" name="urlbar" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="webpage" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="webpage2" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

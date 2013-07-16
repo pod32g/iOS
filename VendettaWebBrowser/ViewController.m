@@ -713,6 +713,9 @@ clickedButtonAtIndex:(NSInteger)Index{
     }
 }
 
+#warning viewDidLoad
+#pragma mark - ViewDidLoad
+
 - (void)viewDidLoad {
    
    self.harlemShake = [[VLMHarlemShake alloc] initWithLonerView:self.harlem];
@@ -722,6 +725,8 @@ clickedButtonAtIndex:(NSInteger)Index{
      [blocked addTarget:self action:@selector(ONorOFF) forControlEvents:UIControlEventValueChanged];
     UIImage* navBarImage=[UIImage imageNamed:@"navBar5.png"];
     UIImage* navBar=[UIImage imageNamed:@"navBar5.png"];
+    UIImage* backbut = [UIImage imageNamed:@"atras.png"];
+    UIImage* forbut = [UIImage imageNamed:@"adelante.png"];
     UIImage* image = [[UIImage imageNamed:@"toolBarStrech.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
     
     
@@ -730,7 +735,8 @@ clickedButtonAtIndex:(NSInteger)Index{
     
         [test setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
         [controls setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-        
+        [back setImage:backbut];
+        [forw setImage:forbut];
         [topBar setBackgroundImage:navBarImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         [themesbar setBackgroundImage:navBar forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     }

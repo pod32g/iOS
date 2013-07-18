@@ -43,7 +43,7 @@
 -(void)ONorOFF{
     
     if (blocked.on) {
-        if (urlbar.text == @"http://www.taringa.net") {
+        if ([urlbar.text isEqual: @"http://www.taringa.net"]) {
             [webpage stopLoading];
         }
         else {
@@ -229,14 +229,6 @@
         
     }
     
-+ (UIWebView *)webViewWithUserAgent:(NSString *)userAgent {
-    NSDictionary *new = [NSDictionary dictionaryWithObject:userAgent forKey:@"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_3) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.163 Safari/535.19"];
-    [[NSUserDefaults standardUserDefaults] registerDefaults:new];
-    
-}
-
-
-
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
       
@@ -712,12 +704,47 @@ clickedButtonAtIndex:(NSInteger)Index{
         
     }
 }
-
-#warning viewDidLoad
-#pragma mark - ViewDidLoad
-
+BOOL isJailbroken()
+{
+#if TARGET_IPHONE_SIMULATOR
+    return NO;
+#else
+    FILE *f = fopen("/bin/bash", "r");
+    
+    if (errno == ENOENT)
+    {
+        // device is NOT jailbroken
+        fclose(f);
+        return NO;
+    }
+    else {
+        // device IS jailbroken
+        fclose(f);
+        return YES;
+    }
+#endif
+}
+#warning ViewDidLoad
 - (void)viewDidLoad {
-   
+    if (isJailbroken() == TRUE) {
+        UIAlertView *jail;
+        jail = [[UIAlertView alloc]
+                 initWithTitle:@"Jailbreak" message:@"The Device Is Jailbroken"
+                 delegate:self cancelButtonTitle:@"OK"
+                 otherButtonTitles:nil];
+        jail.alertViewStyle = UIAlertViewStyleDefault;
+        [jail show];
+    }
+    else
+    {
+        UIAlertView *not;
+        not = [[UIAlertView alloc]
+                initWithTitle:@"Jailbreak" message:@"The Device Is Not Jailbroken"
+                delegate:self cancelButtonTitle:@"OK"
+                otherButtonTitles:nil];
+        not.alertViewStyle = UIAlertViewStyleDefault;
+        [not show];
+    }
    self.harlemShake = [[VLMHarlemShake alloc] initWithLonerView:self.harlem];
     UIApplication *aplication = [UIApplication sharedApplication];
     aplication.networkActivityIndicatorVisible = YES;
@@ -725,8 +752,6 @@ clickedButtonAtIndex:(NSInteger)Index{
      [blocked addTarget:self action:@selector(ONorOFF) forControlEvents:UIControlEventValueChanged];
     UIImage* navBarImage=[UIImage imageNamed:@"navBar5.png"];
     UIImage* navBar=[UIImage imageNamed:@"navBar5.png"];
-    UIImage* backbut = [UIImage imageNamed:@"atras.png"];
-    UIImage* forbut = [UIImage imageNamed:@"adelante.png"];
     UIImage* image = [[UIImage imageNamed:@"toolBarStrech.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0];
     
     
@@ -735,8 +760,7 @@ clickedButtonAtIndex:(NSInteger)Index{
     
         [test setBackgroundImage:navBar forBarMetrics:UIBarMetricsDefault];
         [controls setBackgroundImage:image forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
-        [back setImage:backbut];
-        [forw setImage:forbut];
+        
         [topBar setBackgroundImage:navBarImage forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
         [themesbar setBackgroundImage:navBar forToolbarPosition:UIToolbarPositionAny barMetrics:UIBarMetricsDefault];
     }
@@ -845,7 +869,7 @@ clickedButtonAtIndex:(NSInteger)Index{
     if (webpage.alpha == 1.0) {
         
         NSString *query = [googlebar.text stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-        NSURL *urlQuery = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.google.com.mx/search?q=%@", query]];
+        NSURL *urlQuery = [NSURL URLWithString:[NSString stringWithFormat:@"http://learningwor.com/wiki/index.php?search=%@", query]];
         NSURLRequest *request = [NSURLRequest requestWithURL:urlQuery];
         [webpage loadRequest:request];
     }

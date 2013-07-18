@@ -7,7 +7,7 @@ Simple web Browser (W.I.P)
 
 For Installing the app on a iDevice, Press the button below.
 
-ver 0.5
+ver 0.6
 
 <!-- MacBuildServer Install Button -->
 <div class="macbuildserver-block">
